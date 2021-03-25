@@ -21,32 +21,32 @@ public class AppUserService implements IAppUserService, UserDetailsService {
     private AppUserRepository appUserRepository;
 
     @Override
-    public AppUser getAppUserByName(String name) {
-        return appUserRepository.getAppUserByName(name);
+    public AppUser getAppUserByEmail(String email) {
+        return appUserRepository.getAppUserByEmail(email);
     }
 
     @Override
     public AppUser getCurrentUser() {
         AppUser appUser;
-        String name;
+        String email;
         Object ob = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (ob instanceof UserDetails) {
-            name = ((UserDetails) ob).getUsername();
+            email = ((UserDetails) ob).getUsername();
         } else {
-            name = ob.toString();
+            email = ob.toString();
         }
-        appUser = this.getAppUserByName(name);
+        appUser = this.getAppUserByEmail(email);
         return appUser;
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AppUser appUser = this.getAppUserByName(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        AppUser appUser = this.getAppUserByEmail(email);
         if (appUser == null) throw new UsernameNotFoundException("Not found username");
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add((GrantedAuthority) appUser.getAppRole());
         UserDetails userDetails = new User(
-                appUser.getName(),
+                appUser.getEmail(),
                 appUser.getPassword(),
                 authorities);
         return userDetails;

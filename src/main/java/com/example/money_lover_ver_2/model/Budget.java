@@ -1,7 +1,7 @@
 package com.example.money_lover_ver_2.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 public class Budget {
