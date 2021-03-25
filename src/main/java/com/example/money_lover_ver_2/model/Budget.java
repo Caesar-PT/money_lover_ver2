@@ -10,7 +10,7 @@ public class Budget {
     private long id;
 
     @ManyToOne
-    private LoginUser loginUser;
+    private AppUser appUser;
 
     private Date startDate;
     private Date endDate;
@@ -19,9 +19,9 @@ public class Budget {
     public Budget() {
     }
 
-    public Budget(long id, LoginUser loginUser, Date startDate, Date endDate, double amountOfMoney) {
+    public Budget(long id, AppUser appUser, Date startDate, Date endDate, double amountOfMoney) {
         this.id = id;
-        this.loginUser = loginUser;
+        this.appUser = appUser;
         this.startDate = startDate;
         this.endDate = endDate;
         this.amountOfMoney = amountOfMoney;
@@ -35,12 +35,12 @@ public class Budget {
         this.id = id;
     }
 
-    public LoginUser getLoginUser() {
-        return loginUser;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setLoginUser(LoginUser loginUser) {
-        this.loginUser = loginUser;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public Date getStartDate() {

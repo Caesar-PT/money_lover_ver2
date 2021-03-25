@@ -10,7 +10,7 @@ public class Event {
     private long id;
 
     @ManyToOne
-    private LoginUser loginUser;
+    private AppUser appUser;
 
     @ManyToOne
     private Wallet wallet;
@@ -26,17 +26,6 @@ public class Event {
     public Event() {
     }
 
-    public Event(long id, LoginUser loginUser, Wallet wallet, GroupAction groupAction, String nameAction, double amountOfMoney, Date date, String description) {
-        this.id = id;
-        this.loginUser = loginUser;
-        this.wallet = wallet;
-        this.groupAction = groupAction;
-        this.nameAction = nameAction;
-        this.amountOfMoney = amountOfMoney;
-        this.date = date;
-        this.description = description;
-    }
-
     public long getId() {
         return id;
     }
@@ -45,12 +34,12 @@ public class Event {
         this.id = id;
     }
 
-    public LoginUser getLoginUser() {
-        return loginUser;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setLoginUser(LoginUser loginUser) {
-        this.loginUser = loginUser;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public Wallet getWallet() {

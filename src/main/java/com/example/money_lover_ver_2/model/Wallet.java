@@ -11,7 +11,10 @@ public class Wallet {
     private double totalMoney;
 
     @ManyToOne
-    private LoginUser loginUser;
+    private AppUser appUser;
+
+    public Wallet() {
+    }
 
     public long getId() {
         return id;
@@ -37,21 +40,11 @@ public class Wallet {
         this.totalMoney = totalMoney;
     }
 
-    public LoginUser getLoginUser() {
-        return loginUser;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setLoginUser(LoginUser loginUser) {
-        this.loginUser = loginUser;
-    }
-
-    public Wallet() {
-    }
-
-    public Wallet(long id, String name, double totalMoney, LoginUser loginUser) {
-        this.id = id;
-        this.name = name;
-        this.totalMoney = totalMoney;
-        this.loginUser = loginUser;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 }
